@@ -1,3 +1,5 @@
 import 'package:flutter/widgets.dart';
 
-const defaultPadding = EdgeInsets.all(16.0);
+class Paddings {
+  final EdgeInsets defaultPadding = const EdgeInsets.all(16.0);
+}

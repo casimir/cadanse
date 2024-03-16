@@ -1,7 +1,6 @@
+import 'package:cadanse/cadanse.dart';
 import 'package:cadanse/components/widgets/cards.dart';
 import 'package:cadanse/components/widgets/error.dart';
-import 'package:cadanse/tokens/paddings.dart';
-import 'package:cadanse/tokens/spacers.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -37,7 +36,7 @@ class HomePage extends StatelessWidget {
         title: Text(title),
       ),
       body: Padding(
-        padding: defaultPadding,
+        padding: C.paddings.defaultPadding,
         child: ListView(
           children: _buildPaddedCardSection(context) +
               _buildDivider() +
@@ -50,20 +49,20 @@ class HomePage extends StatelessWidget {
 
 List<Widget> _buildDivider() {
   return [
-    verticalContentSpacer,
+    C.spacers.verticalContent,
     const Divider(),
-    verticalContentSpacer,
+    C.spacers.verticalContent,
   ];
 }
 
 List<Widget> _buildPaddedCardSection(BuildContext context) {
   return [
     Text('PaddedCard', style: Theme.of(context).textTheme.titleLarge),
-    verticalContentSpacer,
+    C.spacers.verticalContent,
     const Text(
       'PaddedCard is a Card with the default cadanse padding.',
     ),
-    verticalContentSpacer,
+    C.spacers.verticalContent,
     const WidgetDemoFrame(
       child: Wrap(
         crossAxisAlignment: WrapCrossAlignment.center,
@@ -82,14 +81,14 @@ List<Widget> _buildErrorScreenSection(BuildContext context) {
 
   return [
     Text('ErrorScreen', style: Theme.of(context).textTheme.titleLarge),
-    verticalContentSpacer,
+    C.spacers.verticalContent,
     const Text(
         'ErrorScreen is a content placeholder to show in case of loading error. '
         'In the following example the widget as been embedded in a PaddedCard for better readability.'),
     const Text(
       'ErrorScreen can optionally have a description to provide more context.',
     ),
-    verticalContentSpacer,
+    C.spacers.verticalContent,
     WidgetDemoFrame(
       child: Wrap(
         crossAxisAlignment: WrapCrossAlignment.center,
@@ -118,7 +117,7 @@ class WidgetDemoFrame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: defaultPadding,
+      padding: C.paddings.defaultPadding,
       decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
       child: child,
     );

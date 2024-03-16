@@ -1,5 +1,6 @@
-import 'package:cadanse/tokens/spacers.dart';
 import 'package:flutter/material.dart';
+
+import '../../cadanse.dart';
 
 class ErrorScreen extends StatelessWidget {
   const ErrorScreen({super.key, required this.error, this.description});
@@ -11,10 +12,10 @@ class ErrorScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: [
       const Icon(Icons.error_outline, size: 48.0),
-      verticalContentSpacer,
+      C.spacers.verticalContent,
       if (description != null)
         Text(description!, style: const TextStyle(fontWeight: FontWeight.bold)),
-      if (description != null) verticalContentSpacer,
+      if (description != null) C.spacers.verticalContent,
       Text(error.toString(), style: const TextStyle(fontFamily: 'monospace')),
     ]);
   }
