@@ -5,7 +5,7 @@ import '../../cadanse.dart';
 class ErrorScreen extends StatelessWidget {
   const ErrorScreen({super.key, required this.error, this.description});
 
-  final Exception error;
+  final Object error;
   final String? description;
 
   @override
