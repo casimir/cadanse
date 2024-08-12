@@ -1,3 +1,7 @@
+## 1.2.0
+
+- components/layouts: Add the ResponsiveContainer component.
+
 ## 1.1.1
 
 - C: Consolidate paddings and spacers into an interface for easier use.

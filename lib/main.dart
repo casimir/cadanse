@@ -1,4 +1,5 @@
 import 'package:cadanse/cadanse.dart';
+import 'package:cadanse/components/layouts/container.dart';
 import 'package:cadanse/components/widgets/cards.dart';
 import 'package:cadanse/components/widgets/error.dart';
 import 'package:flutter/material.dart';
@@ -30,12 +31,13 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO add a link to the source code
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(title),
       ),
-      body: Padding(
+      body: ResponsiveContainer(
         padding: C.paddings.defaultPadding,
         child: ListView(
           children: _buildPaddedCardSection(context) +
