@@ -1,6 +1,8 @@
 ## 1.3.0
 
 - Add a notion of widget grouping and update constants and tokens accordingly.
+- Update dev dependencies.
+
 ## 1.2.0
 
 - components/layouts: Add the ResponsiveContainer component.
