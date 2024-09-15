@@ -2,6 +2,7 @@ import 'package:cadanse/cadanse.dart';
 import 'package:cadanse/components/layouts/container.dart';
 import 'package:cadanse/components/widgets/cards.dart';
 import 'package:cadanse/components/widgets/error.dart';
+import 'package:cadanse/tokens/constants.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -38,7 +39,7 @@ class HomePage extends StatelessWidget {
         title: Text(title),
       ),
       body: ResponsiveContainer(
-        padding: C.paddings.defaultPadding,
+        padding: C.paddings.group,
         child: ListView(
           children: _buildPaddedCardSection(context) +
               _buildDivider() +
@@ -61,9 +62,7 @@ List<Widget> _buildPaddedCardSection(BuildContext context) {
   return [
     Text('PaddedCard', style: Theme.of(context).textTheme.titleLarge),
     C.spacers.verticalContent,
-    const Text(
-      'PaddedCard is a Card with the default cadanse padding.',
-    ),
+    const Text('PaddedCard is a Card with the default cadanse padding.'),
     C.spacers.verticalContent,
     const WidgetDemoFrame(
       child: Wrap(
@@ -88,13 +87,12 @@ List<Widget> _buildErrorScreenSection(BuildContext context) {
         'ErrorScreen is a content placeholder to show in case of loading error. '
         'In the following example the widget as been embedded in a PaddedCard for better readability.'),
     const Text(
-      'ErrorScreen can optionally have a description to provide more context.',
-    ),
+        'ErrorScreen can optionally have a description to provide more context.'),
     C.spacers.verticalContent,
     WidgetDemoFrame(
       child: Wrap(
         crossAxisAlignment: WrapCrossAlignment.center,
-        spacing: 16.0,
+        spacing: kSpacingBetweenGroups,
         children: [
           PaddedCard(
             child: ErrorScreen(error: exceptionExample),
@@ -119,7 +117,7 @@ class WidgetDemoFrame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: C.paddings.defaultPadding,
+      padding: C.paddings.group,
       decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
       child: child,
     );
