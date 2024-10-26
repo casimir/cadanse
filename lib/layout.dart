@@ -17,8 +17,8 @@ enum WindowClass {
 
   factory WindowClass.fromWidth(double width) {
     if (width < mediumBreakpoint) return WindowClass.compact;
-    if (width < expandedBreakpoint) return WindowClass.expanded;
-    return WindowClass.medium;
+    if (width < expandedBreakpoint) return WindowClass.medium;
+    return WindowClass.expanded;
   }
 }
 
