@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.0] - 2025-03-26
+
+### 🚀 Features
+
+- *(component)* Add ActionsMenuButton, an adaptive pop up menu
+
+### 🐛 Bug Fixes
+
+- *(renovate)* Syntax typo
+- *(deps)* Update android build tools (#6)
+
+### 📚 Documentation
+
+- Fix formatting of some inline documentation
+
+### ⚙️ Miscellaneous Tasks
+
+- *(ci)* Upgrade gh actions
+
 ## [1.3.1] - 2024-10-26
 
 ### 🐛 Bug Fixes
