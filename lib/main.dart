@@ -5,6 +5,8 @@ import 'package:cadanse/components/widgets/error.dart';
 import 'package:cadanse/tokens/constants.dart';
 import 'package:flutter/material.dart';
 
+import 'components/widgets/adaptive/actions_menu.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -18,7 +20,6 @@ class MyApp extends StatelessWidget {
       title: 'Cadanse Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
-        useMaterial3: true,
       ),
       home: const HomePage(title: 'Cadanse Components Demo'),
     );
@@ -41,9 +42,13 @@ class HomePage extends StatelessWidget {
       body: ResponsiveContainer(
         padding: C.paddings.group,
         child: ListView(
-          children: _buildPaddedCardSection(context) +
-              _buildDivider() +
-              _buildErrorScreenSection(context),
+          children: [
+            ..._buildPaddedCardSection(context),
+            ..._buildDivider(),
+            ..._buildErrorScreenSection(context),
+            ..._buildDivider(),
+            ..._buildActionsMenuSection(context),
+          ],
         ),
       ),
     );
@@ -102,6 +107,66 @@ List<Widget> _buildErrorScreenSection(BuildContext context) {
               error: exceptionExample,
               description: 'It was going so well...',
             ),
+          ),
+        ],
+      ),
+    ),
+  ];
+}
+
+List<Widget> _buildActionsMenuSection(BuildContext context) {
+  final actions = [
+    ActionsMenuEntry(
+      title: 'Send message',
+      icon: Icons.send,
+      onTap: () {},
+    ),
+    ActionsMenuEntry(
+      title: 'Delete message',
+      icon: Icons.delete,
+      onTap: () {},
+      isDestructive: true,
+    ),
+    null,
+    ActionsMenuEntry(
+      title: 'Reboot the world',
+      onTap: () {},
+    ),
+  ];
+
+  return [
+    Text('ActionsMenu', style: Theme.of(context).textTheme.titleLarge),
+    C.spacers.verticalContent,
+    const Text(
+      'ActionsMenu is a button that opens a menu providing a list of actions. '
+      'The default behavior is adaptive but it can also used explicitly as a Material '
+      'Design or Human Interface Guidelines widget.',
+    ),
+    C.spacers.verticalContent,
+    WidgetDemoFrame(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Column(
+            children: [
+              const Text('Adaptive'),
+              C.spacers.verticalComponent,
+              ActionsMenuButton(actions: actions),
+            ],
+          ),
+          Column(
+            children: [
+              const Text('Material 3'),
+              C.spacers.verticalComponent,
+              ActionsMenuButton.material(actions: actions),
+            ],
+          ),
+          Column(
+            children: [
+              const Text('HIG'),
+              C.spacers.verticalComponent,
+              ActionsMenuButton.human(actions: actions),
+            ],
           ),
         ],
       ),
