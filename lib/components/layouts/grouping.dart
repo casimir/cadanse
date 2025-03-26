@@ -3,7 +3,6 @@ import 'package:flutter/widgets.dart';
 
 /// A Group is an area that contains a group of related widgets. The grouping is
 /// done using negative spaces (padding and spacing).
-
 class PaddedGroup extends StatelessWidget {
   const PaddedGroup({
     super.key,
