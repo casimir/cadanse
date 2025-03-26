@@ -1,5 +1,6 @@
-import 'package:cadanse/tokens/paddings.dart';
 import 'package:flutter/widgets.dart';
+
+import '../../tokens/paddings.dart';
 
 /// A Group is an area that contains a group of related widgets. The grouping is
 /// done using negative spaces (padding and spacing).

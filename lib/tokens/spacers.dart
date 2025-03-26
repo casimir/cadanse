@@ -1,5 +1,6 @@
-import 'package:cadanse/tokens/constants.dart';
 import 'package:flutter/widgets.dart';
+
+import 'constants.dart';
 
 class Spacers {
   final Widget horizontalContent = const SizedBox(width: kSpacingBetweenGroups);

@@ -1,11 +1,11 @@
-import 'package:cadanse/cadanse.dart';
-import 'package:cadanse/components/layouts/container.dart';
-import 'package:cadanse/components/widgets/cards.dart';
-import 'package:cadanse/components/widgets/error.dart';
-import 'package:cadanse/tokens/constants.dart';
 import 'package:flutter/material.dart';
 
+import 'cadanse.dart';
+import 'components/layouts/container.dart';
 import 'components/widgets/adaptive/actions_menu.dart';
+import 'components/widgets/cards.dart';
+import 'components/widgets/error.dart';
+import 'tokens/constants.dart';
 
 void main() {
   runApp(const MyApp());

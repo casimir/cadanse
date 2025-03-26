@@ -1,5 +1,6 @@
-import 'package:cadanse/layout.dart';
 import 'package:flutter/widgets.dart';
+
+import '../../layout.dart';
 
 /// A widget that constrains its child to a maximum width. It is intended to
 /// be used as the main content container in apps that target small and large

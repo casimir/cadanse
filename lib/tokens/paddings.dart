@@ -1,5 +1,6 @@
-import 'package:cadanse/tokens/constants.dart';
 import 'package:flutter/widgets.dart';
+
+import 'constants.dart';
 
 const groupPadding = EdgeInsets.all(kSpacingBetweenGroups);
 const inGroupPadding = EdgeInsets.all(kSpacingInGroup);
