@@ -3,4 +3,19 @@
   "extends": [
     "config:recommended"
   ]
+  "packageRules": [
+    {
+      "groupName": "Android build tools",
+      "matchManagers": [
+        "gradle",
+        "gradle-wrapper"
+      ]
+    },
+    {
+      "groupName": "GitHub Actions",
+      "matchManagers": [
+        "github-actions"
+      ]
+    }
+  ]
 }
