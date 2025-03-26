@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/widgets.dart';
 
 import 'tokens/adaptive/icons.dart';
 import 'tokens/paddings.dart';
@@ -8,9 +8,7 @@ class C {
   static Paddings paddings = Paddings();
   static Spacers spacers = Spacers();
 
-  static C of(BuildContext context) => C(context);
+  C(BuildContext context) : icons = AdaptiveIconFactory(context);
 
-  const C(BuildContext context) : _icons = Icons(context);
-
-  final Icons _icons;
+  final AdaptiveIconFactory icons;
 }

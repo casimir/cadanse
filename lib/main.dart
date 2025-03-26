@@ -123,7 +123,7 @@ List<Widget> _buildActionsMenuSection(BuildContext context) {
     ),
     ActionsMenuEntry(
       title: 'Delete message',
-      icon: Icons.delete,
+      icon: C(context).icons.delete,
       onTap: () {},
       isDestructive: true,
     ),
