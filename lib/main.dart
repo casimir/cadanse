@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'cadanse.dart';
+import 'components/flows/confirmation_modal.dart';
 import 'components/layouts/container.dart';
 import 'components/widgets/adaptive/actions_menu.dart';
 import 'components/widgets/cards.dart';
@@ -33,7 +34,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO add a link to the source code
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -43,11 +43,18 @@ class HomePage extends StatelessWidget {
         padding: C.paddings.group,
         child: ListView(
           children: [
+            Text(
+              'You can refer to lib/main.dart for the source code of this demo.',
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+            ..._buildDivider(),
             ..._buildPaddedCardSection(context),
             ..._buildDivider(),
             ..._buildErrorScreenSection(context),
             ..._buildDivider(),
             ..._buildActionsMenuSection(context),
+            ..._buildDivider(),
+            ..._buildConfirmationModalSection(context),
           ],
         ),
       ),
@@ -167,6 +174,70 @@ List<Widget> _buildActionsMenuSection(BuildContext context) {
               C.spacers.verticalComponent,
               ActionsMenuButton.human(actions: actions),
             ],
+          ),
+        ],
+      ),
+    ),
+  ];
+}
+
+List<Widget> _buildConfirmationModalSection(BuildContext context) {
+  Future<void> displayConfirmation(ConfirmationVariant variant) async {
+    final result = await askForConfirmation(
+      context: context,
+      title: 'Delete item',
+      message: 'Are you sure you want to delete this item?',
+      action: const ConfirmationAction(
+        title: 'Delete',
+        isDestructive: true,
+      ),
+      overridePlatformType: variant,
+    );
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Confirmation result: $result'),
+        ),
+      );
+    }
+  }
+
+  return [
+    Text('ConfirmationModal', style: Theme.of(context).textTheme.titleLarge),
+    C.spacers.verticalContent,
+    const Text(
+      'ConfirmationModal is a modal component that asks the user for confirmation '
+      'before proceeding to a given action. By default, it tries to adhere to the '
+      "platform's expected behavior.",
+    ),
+    C.spacers.verticalContent,
+    const Text(
+      'A bottom sheet is used on compact screens while a dialog is preferred on larger screens.',
+    ),
+    C.spacers.verticalContent,
+    WidgetDemoFrame(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          ElevatedButton(
+            onPressed: () => displayConfirmation(ConfirmationVariant.material),
+            child: const Text('Material 3'),
+          ),
+          C.spacers.verticalComponent,
+          ElevatedButton(
+            onPressed: () =>
+                displayConfirmation(ConfirmationVariant.iosCompact),
+            child: const Text('iOS (compact)'),
+          ),
+          C.spacers.verticalComponent,
+          ElevatedButton(
+            onPressed: () => displayConfirmation(ConfirmationVariant.iosLarge),
+            child: const Text('iOS (large)'),
+          ),
+          C.spacers.verticalComponent,
+          ElevatedButton(
+            onPressed: () => displayConfirmation(ConfirmationVariant.macos),
+            child: const Text('MacOS'),
           ),
         ],
       ),
