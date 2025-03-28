@@ -1,12 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pull_down_button/pull_down_button.dart';
-
-enum _TargetType {
-  adaptive,
-  human,
-  material,
-}
+import '../../../shared/target_type.dart';
 
 class ActionsMenuEntry {
   const ActionsMenuEntry({
@@ -28,31 +23,24 @@ class ActionsMenuEntry {
 
 class ActionsMenuButton extends StatelessWidget {
   const ActionsMenuButton({super.key, required this.actions})
-      : _targetType = _TargetType.adaptive;
+      : _targetType = TargetType.adaptive;
 
   const ActionsMenuButton.human({super.key, required this.actions})
-      : _targetType = _TargetType.human;
+      : _targetType = TargetType.human;
 
   const ActionsMenuButton.material({super.key, required this.actions})
-      : _targetType = _TargetType.material;
+      : _targetType = TargetType.material;
 
-  final _TargetType _targetType;
+  final TargetType _targetType;
   final List<ActionsMenuEntry?> actions;
 
   @override
   Widget build(BuildContext context) {
-    switch (_targetType) {
-      case _TargetType.adaptive:
-        final platform = Theme.of(context).platform;
-        return switch (platform) {
-          TargetPlatform.iOS || TargetPlatform.macOS => _buildHuman(),
-          _ => _buildMaterial(),
-        };
-      case _TargetType.human:
-        return _buildHuman();
-      case _TargetType.material:
-        return _buildMaterial();
-    }
+    final effectiveTargetType =
+        _targetType.effectiveType(Theme.of(context).platform);
+    return effectiveTargetType == TargetType.human
+        ? _buildHuman()
+        : _buildMaterial();
   }
 
   Widget _buildHuman() {
@@ -71,8 +59,8 @@ class ActionsMenuButton extends StatelessWidget {
           .cast<PullDownMenuEntry>()
           .toList(),
       buttonBuilder: (context, showMenu) => CupertinoButton(
-        onPressed: showMenu,
         padding: EdgeInsets.zero,
+        onPressed: showMenu,
         child: const Icon(CupertinoIcons.ellipsis_circle),
       ),
     );
