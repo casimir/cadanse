@@ -39,10 +39,10 @@ class ActionButton extends StatelessWidget {
         ? CupertinoButton(
             padding: EdgeInsets.zero,
             onPressed: onPressed,
-            child: Icon(icon),
+            child: Icon(icon, semanticLabel: tooltip),
           )
         : IconButton(
-            icon: Icon(icon),
+            icon: Icon(icon, semanticLabel: tooltip),
             tooltip: tooltip,
             onPressed: onPressed,
           );
