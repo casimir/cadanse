@@ -40,9 +40,10 @@ class HomePage extends StatelessWidget {
         title: Text(title),
       ),
       body: ResponsiveContainer(
-        padding: C.paddings.group,
+        padding: C.paddings.group.copyWith(top: 0),
         child: ListView(
           children: [
+            C.spacers.verticalContent,
             Text(
               'You can refer to lib/main.dart for the source code of this demo.',
               style: Theme.of(context).textTheme.bodyLarge,
@@ -79,11 +80,7 @@ List<Widget> _buildPaddedCardSection(BuildContext context) {
     const WidgetDemoFrame(
       child: Wrap(
         crossAxisAlignment: WrapCrossAlignment.center,
-        children: [
-          PaddedCard(
-            child: Text('This is a PaddedCard.'),
-          ),
-        ],
+        children: [PaddedCard(child: Text('This is a PaddedCard.'))],
       ),
     ),
   ];
@@ -96,19 +93,19 @@ List<Widget> _buildErrorScreenSection(BuildContext context) {
     Text('ErrorScreen', style: Theme.of(context).textTheme.titleLarge),
     C.spacers.verticalContent,
     const Text(
-        'ErrorScreen is a content placeholder to show in case of loading error. '
-        'In the following example the widget as been embedded in a PaddedCard for better readability.'),
+      'ErrorScreen is a content placeholder to show in case of loading error. '
+      'In the following example the widget as been embedded in a PaddedCard for better readability.',
+    ),
     const Text(
-        'ErrorScreen can optionally have a description to provide more context.'),
+      'ErrorScreen can optionally have a description to provide more context.',
+    ),
     C.spacers.verticalContent,
     WidgetDemoFrame(
       child: Wrap(
         crossAxisAlignment: WrapCrossAlignment.center,
         spacing: kSpacingBetweenGroups,
         children: [
-          PaddedCard(
-            child: ErrorScreen(error: exceptionExample),
-          ),
+          PaddedCard(child: ErrorScreen(error: exceptionExample)),
           PaddedCard(
             child: ErrorScreen(
               error: exceptionExample,
@@ -123,11 +120,7 @@ List<Widget> _buildErrorScreenSection(BuildContext context) {
 
 List<Widget> _buildActionsMenuSection(BuildContext context) {
   final actions = [
-    ActionsMenuEntry(
-      title: 'Send message',
-      icon: Icons.send,
-      onTap: () {},
-    ),
+    ActionsMenuEntry(title: 'Send message', icon: Icons.send, onTap: () {}),
     ActionsMenuEntry(
       title: 'Delete message',
       icon: C(context).icons.delete,
@@ -135,10 +128,7 @@ List<Widget> _buildActionsMenuSection(BuildContext context) {
       isDestructive: true,
     ),
     null,
-    ActionsMenuEntry(
-      title: 'Reboot the world',
-      onTap: () {},
-    ),
+    ActionsMenuEntry(title: 'Reboot the world', onTap: () {}),
   ];
 
   return [
@@ -187,18 +177,13 @@ List<Widget> _buildConfirmationModalSection(BuildContext context) {
       context: context,
       title: 'Delete item',
       message: 'Are you sure you want to delete this item?',
-      action: const ConfirmationAction(
-        title: 'Delete',
-        isDestructive: true,
-      ),
+      action: const ConfirmationAction(title: 'Delete', isDestructive: true),
       overridePlatformType: variant,
     );
     if (context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Confirmation result: $result'),
-        ),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Confirmation result: $result')));
     }
   }
 
@@ -216,8 +201,8 @@ List<Widget> _buildConfirmationModalSection(BuildContext context) {
     ),
     C.spacers.verticalContent,
     WidgetDemoFrame(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      child: Wrap(
+        alignment: WrapAlignment.spaceEvenly,
         children: [
           ElevatedButton(
             onPressed: () => displayConfirmation(ConfirmationVariant.material),
@@ -225,8 +210,8 @@ List<Widget> _buildConfirmationModalSection(BuildContext context) {
           ),
           C.spacers.verticalComponent,
           ElevatedButton(
-            onPressed: () =>
-                displayConfirmation(ConfirmationVariant.iosCompact),
+            onPressed:
+                () => displayConfirmation(ConfirmationVariant.iosCompact),
             child: const Text('iOS (compact)'),
           ),
           C.spacers.verticalComponent,
@@ -254,7 +239,9 @@ class WidgetDemoFrame extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: C.paddings.group,
-      decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
+      decoration: BoxDecoration(
+        border: Border.all(color: Theme.of(context).dividerColor),
+      ),
       child: child,
     );
   }
