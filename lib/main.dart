@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'cadanse.dart';
 import 'components/flows/confirmation_modal.dart';
 import 'components/layouts/container.dart';
 import 'components/widgets/adaptive/actions_menu.dart';
+import 'components/widgets/adaptive/modal_sheet.dart';
 import 'components/widgets/cards.dart';
 import 'components/widgets/error.dart';
 import 'tokens/constants.dart';
@@ -56,6 +58,8 @@ class HomePage extends StatelessWidget {
             ..._buildActionsMenuSection(context),
             ..._buildDivider(),
             ..._buildConfirmationModalSection(context),
+            ..._buildDivider(),
+            ..._buildModalSheetSection(context),
           ],
         ),
       ),
@@ -223,6 +227,51 @@ List<Widget> _buildConfirmationModalSection(BuildContext context) {
           ElevatedButton(
             onPressed: () => displayConfirmation(ConfirmationVariant.macos),
             child: const Text('MacOS'),
+          ),
+        ],
+      ),
+    ),
+  ];
+}
+
+List<Widget> _buildModalSheetSection(BuildContext context) {
+  const modalTitle = 'Modal Sheet';
+  const modalContent = Center(child: Text('This is a modal sheet.'));
+
+  return [
+    Text('ModalSheet', style: Theme.of(context).textTheme.titleLarge),
+    C.spacers.verticalContent,
+    const Text(
+      'ModalSheet is a modal component that can be used to display a sheet.',
+    ),
+    C.spacers.verticalContent,
+    WidgetDemoFrame(
+      child: Wrap(
+        alignment: WrapAlignment.spaceEvenly,
+        children: [
+          ElevatedButton(
+            onPressed: () {
+              showModalSheet(
+                context: context,
+                title: modalTitle,
+                builder: (context) => modalContent,
+                platformOverride: TargetPlatform.android,
+              );
+            },
+            child: const Text('Material 3'),
+          ),
+          C.spacers.verticalComponent,
+          ElevatedButton(
+            onPressed: () {
+              showModalSheet(
+                context: context,
+                title: modalTitle,
+                builder: (context) => modalContent,
+                backgroundColor: CupertinoColors.systemGroupedBackground,
+                platformOverride: TargetPlatform.iOS,
+              );
+            },
+            child: const Text('iOS'),
           ),
         ],
       ),
