@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.0] - 2025-04-07
+
+### 🚀 Features
+
+- *(components)* Add a factory for adaptive icons
+- *(components)* New adaptive flow to ask for a user confirmation
+- *(components)* Add an adaptive button for Action in appbar
+- *(components/buttons)* Set semantic labels
+- *(components)* Add an adaptive Scaffold
+- *(components)* Add a helper to show an adaptive modal sheet
+
+### 🐛 Bug Fixes
+
+- *(demo)* A few fixes and tweaks
+
+### 🚜 Refactor
+
+- Use the shared TargetType instead of a copypasted version
+
+### ⚙️ Miscellaneous Tasks
+
+- A version constraint for Dart and Flutter
+
 ## [1.4.0] - 2025-03-26
 
 ### 🚀 Features
