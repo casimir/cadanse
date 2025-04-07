@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.2] - 2025-04-07
+
+### 🐛 Bug Fixes
+
+- *(AdaptiveScaffold)* Prevent the navbar from covering the body
+
+## [1.5.1] - 2025-04-07
+
+### 🐛 Bug Fixes
+
+- *(doc)* Release the missing changelog update
+
 ## [1.5.0] - 2025-04-07
 
 ### 🚀 Features
