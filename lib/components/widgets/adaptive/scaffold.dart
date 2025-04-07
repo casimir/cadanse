@@ -68,7 +68,7 @@ class AdaptiveScaffold extends StatelessWidget {
         ? CupertinoPageScaffold(
           navigationBar: barData?.navigationBar,
           backgroundColor: backgroundColor,
-          child: body,
+          child: SafeArea(child: body),
         )
         : Scaffold(
           appBar: barData?.appBar,
