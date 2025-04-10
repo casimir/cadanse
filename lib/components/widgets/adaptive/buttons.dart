@@ -16,8 +16,8 @@ class ActionButton extends StatelessWidget {
     super.key,
     required this.icon,
     required this.onPressed,
-  })  : _targetType = TargetType.human,
-        tooltip = null;
+  }) : _targetType = TargetType.human,
+       tooltip = null;
 
   const ActionButton.material({
     super.key,
@@ -33,18 +33,19 @@ class ActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final effectiveTargetType =
-        _targetType.effectiveType(Theme.of(context).platform);
+    final effectiveTargetType = _targetType.effectiveType(
+      Theme.of(context).platform,
+    );
     return effectiveTargetType == TargetType.human
         ? CupertinoButton(
-            padding: EdgeInsets.zero,
-            onPressed: onPressed,
-            child: Icon(icon, semanticLabel: tooltip),
-          )
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          onPressed: onPressed,
+          child: Icon(icon, semanticLabel: tooltip, size: 25.0),
+        )
         : IconButton(
-            icon: Icon(icon, semanticLabel: tooltip),
-            tooltip: tooltip,
-            onPressed: onPressed,
-          );
+          icon: Icon(icon, semanticLabel: tooltip),
+          tooltip: tooltip,
+          onPressed: onPressed,
+        );
   }
 }
