@@ -9,6 +9,7 @@ class AdaptiveBarData {
     this.title,
     this.leading,
     this.actions,
+    this.backgroundColor,
     this.bottom,
   });
 
@@ -16,10 +17,16 @@ class AdaptiveBarData {
   final Widget? title;
   final Widget? leading;
   final List<Widget>? actions;
+  final Color? backgroundColor;
   final PreferredSizeWidget? bottom;
 
-  AppBar get appBar =>
-      AppBar(title: title, leading: leading, actions: actions, bottom: bottom);
+  AppBar get appBar => AppBar(
+    title: title,
+    leading: leading,
+    actions: actions,
+    bottom: bottom,
+    backgroundColor: backgroundColor,
+  );
 
   CupertinoNavigationBar get navigationBar => CupertinoNavigationBar(
     middle: title,
@@ -28,6 +35,7 @@ class AdaptiveBarData {
         actions != null
             ? Row(mainAxisSize: MainAxisSize.min, children: actions!)
             : null,
+    backgroundColor: backgroundColor ?? CupertinoColors.systemBackground,
     bottom: bottom,
   );
 }
