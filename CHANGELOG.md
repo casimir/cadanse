@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.3] - 2025-04-11
+
+### 🐛 Bug Fixes
+
+- *(comp/buttons)* Adapt icon sizes for actions on iOS
+- *(comp/scaffold)* Correctly switch between light and dark in iOS
+
 ## [1.5.2] - 2025-04-07
 
 ### 🐛 Bug Fixes
