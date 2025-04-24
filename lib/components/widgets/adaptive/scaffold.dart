@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../shared/target_type.dart';
+import '../cupertino/nav_bar.dart';
 
 class AdaptiveBarData {
   const AdaptiveBarData({
@@ -28,16 +29,23 @@ class AdaptiveBarData {
     backgroundColor: backgroundColor,
   );
 
-  CupertinoNavigationBar get navigationBar => CupertinoNavigationBar(
-    middle: title,
-    leading: leading,
-    trailing:
-        actions != null
-            ? Row(mainAxisSize: MainAxisSize.min, children: actions!)
-            : null,
-    backgroundColor: backgroundColor ?? CupertinoColors.systemBackground,
-    bottom: bottom,
-  );
+  ThemedCupertinoNavigationBar get navigationBar =>
+      ThemedCupertinoNavigationBar(
+        navigationBar: CupertinoNavigationBar(
+          middle: title,
+          leading: leading,
+          trailing:
+              actions != null
+                  ? Row(
+                    mainAxisSize: MainAxisSize.min,
+                    spacing: 16.0,
+                    children: actions!,
+                  )
+                  : null,
+          backgroundColor: backgroundColor ?? CupertinoColors.systemBackground,
+          bottom: bottom,
+        ),
+      );
 }
 
 class AdaptiveScaffold extends StatelessWidget {

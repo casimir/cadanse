@@ -38,7 +38,7 @@ class ActionButton extends StatelessWidget {
     );
     return effectiveTargetType == TargetType.human
         ? CupertinoButton(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          padding: EdgeInsets.zero,
           onPressed: onPressed,
           child: Icon(icon, semanticLabel: tooltip, size: 25.0),
         )
