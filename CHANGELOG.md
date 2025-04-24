@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.4] - 2025-04-24
+
+### 🐛 Bug Fixes
+
+- *(scaffold/cupertino)* Tweaks a few things for a more native look
+
 ## [1.5.3] - 2025-04-11
 
 ### 🐛 Bug Fixes
