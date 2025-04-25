@@ -38,7 +38,7 @@ class AdaptiveBarData {
               actions != null
                   ? Row(
                     mainAxisSize: MainAxisSize.min,
-                    spacing: 16.0,
+                    spacing: 8.0,
                     children: actions!,
                   )
                   : null,
