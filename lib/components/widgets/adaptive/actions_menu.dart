@@ -84,13 +84,13 @@ class ActionsMenuButton extends StatelessWidget {
                             ? PopupMenuItem(
                               key: action.key,
                               enabled: action.enabled,
+                              onTap: action.onTap,
                               child: ListTile(
                                 leading:
                                     action.icon != null
                                         ? Icon(action.icon)
                                         : null,
                                 title: Text(action.title),
-                                onTap: action.onTap,
                               ),
                             )
                             : const PopupMenuDivider(),
