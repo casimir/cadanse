@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.6.0] - 2025-04-29
+
+### 🚀 Features
+
+- *(ActionsMenu/human)* Allow to disable the blur effect
+- *(icons)* Add more icons
+- *(TargetType)* Enforce `material` when in a web browser (+ some doc)
+
+### 🐛 Bug Fixes
+
+- *(ActionsMenu)* Ensure that the popup closes on item selection
+
 ## [1.5.5] - 2025-04-25
 
 ### 🐛 Bug Fixes
