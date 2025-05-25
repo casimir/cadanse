@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../shared/target_type.dart';
+import '../cupertino/nav_bar.dart';
 import 'scaffold.dart';
 
 class ModalSheet extends StatelessWidget {
@@ -44,11 +45,10 @@ class ModalSheet extends StatelessWidget {
   Widget _buildHuman(BuildContext context) {
     return AdaptiveScaffold.human(
       barData: AdaptiveBarData(
-        title: Text(title),
-        leading: CupertinoButton(
-          child: Text(MaterialLocalizations.of(context).cancelButtonLabel),
+        leading: CupertinoNavigationBarCancelButton(
           onPressed: () => CupertinoSheetRoute.popSheet(context),
         ),
+        title: Text(title),
       ),
       body: builder(context),
       backgroundColor: backgroundColor,

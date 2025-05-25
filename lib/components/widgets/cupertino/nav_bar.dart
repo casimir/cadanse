@@ -27,3 +27,26 @@ class ThemedCupertinoNavigationBar extends StatelessWidget
   @override
   Size get preferredSize => navigationBar.preferredSize;
 }
+
+class CupertinoNavigationBarCancelButton extends StatelessWidget {
+  const CupertinoNavigationBarCancelButton({
+    super.key,
+    required this.onPressed,
+  });
+
+  final void Function()? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final labelWidget = Align(
+      alignment: AlignmentDirectional.centerStart,
+      widthFactor: 1.0,
+      child: Text(CupertinoLocalizations.of(context).cancelButtonLabel),
+    );
+    return CupertinoButton(
+      padding: EdgeInsets.zero,
+      onPressed: onPressed,
+      child: labelWidget,
+    );
+  }
+}
