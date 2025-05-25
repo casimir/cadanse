@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.6.1] - 2025-05-25
+
+### 🐛 Bug Fixes
+
+- *(scaffold/cupertino)* Better Cancel button in the navbar
+
 ## [1.6.0] - 2025-04-29
 
 ### 🚀 Features
