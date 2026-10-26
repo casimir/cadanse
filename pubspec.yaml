@@ -24,7 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^2.0.0
   macos_ui: ^2.1.10
   pull_down_button: ^0.10.2
 
